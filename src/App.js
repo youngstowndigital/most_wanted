@@ -5,7 +5,9 @@ import WantedProvider from './context/WantedContext';
 function App() {
   return (
     <WantedProvider>
-      <WantedList />
+      <div className="container">
+        <WantedList />
+      </div>
     </WantedProvider>
   );
 }
