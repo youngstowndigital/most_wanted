@@ -10,8 +10,8 @@ const WantedCard = ({ wanted: { title, images, uid }, selectWanted }) => {
                     <p className="card-text"></p>
                     <button onClick={() => { selectWanted(uid) }} className="btn btn-primary">View</button>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                <div className="card-footer">
+                    <small className="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
         </div>

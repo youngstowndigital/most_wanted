@@ -1,3 +1,8 @@
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
 import './App.css'
 import NavBar from './components/NavBar'
 import WantedList from './containers/WantedList'
@@ -9,8 +14,12 @@ function App() {
       <NavBar />
       <br />
       <div className="container">
-        <WantedList />
-      </div>
+        <BrowserRouter>
+          <Routes>  
+            <Route path="/" element={ <WantedList /> } />
+          </Routes>
+        </BrowserRouter>
+      </div>    
     </WantedProvider>
   )
 }
