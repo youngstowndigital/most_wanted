@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const WantedCard = ({ wanted: { title, images, uid }, selectWanted }) => {
     return (
@@ -8,7 +9,7 @@ const WantedCard = ({ wanted: { title, images, uid }, selectWanted }) => {
                 <div className="card-body">
                     <h5 className="card-title">{ title }</h5>
                     <p className="card-text"></p>
-                    <button onClick={() => { selectWanted(uid) }} className="btn btn-primary">View</button>
+                    <Link to={ `/${uid}` } className="btn btn-primary">View</Link>
                 </div>
                 <div className="card-footer">
                     <small className="text-muted">Last updated 3 mins ago</small>
