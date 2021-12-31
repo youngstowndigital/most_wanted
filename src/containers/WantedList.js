@@ -7,7 +7,6 @@ const WantedList = () => {
 
     return (
         <div>
-            <h1>Most Wanted</h1>
             <div className="row">
                 { wanted.map(w => <WantedCard key={w.uid} wanted={w} />) }
             </div>
