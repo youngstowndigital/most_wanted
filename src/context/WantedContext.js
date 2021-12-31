@@ -4,11 +4,17 @@ import React, { createContext, useState, useEffect } from 'react'
 export const WantedContext = createContext();
 
 const WantedProvider = ({ children }) => {
-    const [wanted, setWanted] = useState([])
+    const [wantedList, setWantedList] = useState([])
+    const [selectedWanted, setSelectedWanted] = useState({})
 
     const fetchWanted = async () => {
         const res = await axios.get('https://api.fbi.gov/wanted/v1/list?field_offices=miami')
-        setWanted(res.data.items)
+        setWantedList(res.data.items)
+    }
+
+    const selectWanted = (uid) => {
+        const wanted = wantedList.filter(w => w.uid === uid)[0]
+        setSelectedWanted(wanted);
     }
 
     useEffect(() => {
@@ -16,7 +22,7 @@ const WantedProvider = ({ children }) => {
     }, [])
 
     return (
-        <WantedContext.Provider value={{ wanted }}>
+        <WantedContext.Provider value={{ wantedList, selectedWanted, selectWanted }}>
             { children }
         </WantedContext.Provider>
     )
