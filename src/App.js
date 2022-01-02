@@ -15,8 +15,7 @@ function App() {
     <WantedProvider>
       <BrowserRouter>
         <NavBar />
-        <br />
-        <div className="container">
+        <div className="container my-5">
         <Routes>  
           <Route exact path="/" element={ <WantedList /> } />
           <Route exact path="/:id" element={ <WantedPage /> } />

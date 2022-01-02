@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-const WantedCard = ({ wanted: { title, images, uid }, selectWanted }) => {
+const WantedCard = ({ wanted: { title, images, uid, modified } }) => {
     return (
         <div className="col-md-3 my-3">
             <div className="card">
@@ -12,7 +13,7 @@ const WantedCard = ({ wanted: { title, images, uid }, selectWanted }) => {
                     <Link to={ `/${uid}` } className="btn btn-primary">View</Link>
                 </div>
                 <div className="card-footer">
-                    <small className="text-muted">Last updated 3 mins ago</small>
+                    <small className="text-muted">Updated: { moment(modified, "YYYYMMDD").fromNow() }</small>
                 </div>
             </div>
         </div>
