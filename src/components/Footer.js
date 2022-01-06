@@ -3,7 +3,9 @@ import React from 'react'
 const Footer = () => {
     return (
         <div className="footer mt-auto py-3 bg-light">
-            Footer
+            <div className="container">
+                &copy; Youngstown Digital { new Date().getFullYear() }
+            </div>
         </div>
     )
 }
