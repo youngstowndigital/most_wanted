@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import './App.css'
 import Footer from './components/Footer';
+import HomePage from './components/HomePage';
 import NavBar from './components/NavBar'
 import WantedList from './containers/WantedList'
 import WantedPage from './containers/WantedPage';
@@ -16,9 +17,10 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <div className="container my-5">
-        <Routes>  
-          <Route exact path="/" element={ <WantedList /> } />
-          <Route exact path="/:id" element={ <WantedPage /> } />
+        <Routes>
+          <Route exact path="/" element={ <HomePage /> } />
+          <Route exact path="/wanted" element={ <WantedList /> } />
+          <Route exact path="/wanted/:id" element={ <WantedPage /> } />
         </Routes>
         </div>
         <Footer />  
