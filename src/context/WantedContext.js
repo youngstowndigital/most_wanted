@@ -1,15 +1,22 @@
-import axios from 'axios';
-import React, { createContext, useState, useEffect } from 'react'
+import axios from 'axios'
+import React, { createContext, useState } from 'react'
 
 export const WantedContext = createContext()
 
 const WantedProvider = ({ children }) => {
     const [wantedList, setWantedList] = useState([])
+    const [wantedListLoading, setWantedListLoading] = useState(false);
     const [selectedWanted, setSelectedWanted] = useState(null)
 
     const fetchWanted = async () => {
-        const res = await axios.get('https://api.fbi.gov/wanted/v1/list?field_offices=miami')
-        setWantedList(res.data.items)
+        try {
+            setWantedListLoading(true)
+            const res = await axios.get('https://api.fbi.gov/wanted/v1/list?field_offices=miami')
+            setWantedList(res.data.items)
+            setWantedListLoading(false)   
+        } catch (error) {
+            setWantedListLoading(false)
+        }
     }
 
     const selectWanted = (uid) => {
@@ -21,12 +28,8 @@ const WantedProvider = ({ children }) => {
         setSelectedWanted(null)
     }
 
-    useEffect(() => {
-        fetchWanted()
-    }, [selectedWanted])
-
     return (
-        <WantedContext.Provider value={{ wantedList, selectedWanted, selectWanted, deselectWanted }}>
+        <WantedContext.Provider value={{ wantedList, selectedWanted, wantedListLoading, selectWanted, deselectWanted, fetchWanted, selectedWanted }}>
             { children }
         </WantedContext.Provider>
     )
