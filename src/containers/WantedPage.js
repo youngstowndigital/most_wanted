@@ -6,8 +6,7 @@ const WantedPage = () => {
     const { 
         selectWanted, 
         deselectWanted, 
-        selectedWanted, 
-        wantedList 
+        selectedWanted,
     } = useContext(WantedContext)
     
     const params = useParams()
@@ -15,7 +14,7 @@ const WantedPage = () => {
     useEffect(() => {
         deselectWanted()
         selectWanted(params.id)
-    }, [wantedList])
+    }, [selectWanted, deselectWanted, params.id])
 
     if (!selectedWanted)
         return <div>Not Found</div>

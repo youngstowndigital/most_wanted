@@ -16,13 +16,15 @@ function App() {
     <WantedProvider>
       <BrowserRouter>
         <NavBar />
-        <div className="container my-5">
-        <Routes>
-          <Route exact path="/" element={ <HomePage /> } />
-          <Route exact path="/wanted" element={ <WantedList /> } />
-          <Route exact path="/wanted/:id" element={ <WantedPage /> } />
-        </Routes>
-        </div>
+        <main className="flex-shrink-0">
+          <div className="container my-5">
+          <Routes>
+            <Route exact path="/" element={ <HomePage /> } />
+            <Route exact path="/wanted" element={ <WantedList /> } />
+            <Route exact path="/wanted/:id" element={ <WantedPage /> } />
+          </Routes>
+          </div>
+        </main>
         <Footer />  
       </BrowserRouter>  
     </WantedProvider>
