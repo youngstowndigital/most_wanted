@@ -4,7 +4,7 @@ import fbi_logo from '../fbi_logo.png'
 
 const HomePage = () => {
     return (
-        <div className="px-4 py-5 my-5 text-center">
+        <div className="px-4 my-5 text-center">
             <img src={fbi_logo} className="d-block mx-auto mb-4" />
             <h1>FBI  Most Wanted</h1>
             <div className="col-lg mx-auto">
