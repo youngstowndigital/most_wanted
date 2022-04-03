@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <main className="flex-shrink-0">
-          <div className="container my-5">
+          <div className="container my-3">
           <Routes>
             <Route exact path="/" element={ <HomePage /> } />
             <Route exact path="/wanted" element={ <WantedList /> } />
