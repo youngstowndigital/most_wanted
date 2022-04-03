@@ -5,7 +5,7 @@ export const WantedContext = createContext()
 
 const WantedProvider = ({ children }) => {
     const [wantedList, setWantedList] = useState([])
-    const [wantedListLoading, setWantedListLoading] = useState(false);
+    const [wantedListLoading, setWantedListLoading] = useState(false)
     const [selectedWanted, setSelectedWanted] = useState(null)
 
     const fetchWanted = async () => {
